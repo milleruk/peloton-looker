@@ -179,7 +179,7 @@ def upload_to_bq(data, t_name, disposition="append"):
             if df.empty:
                 df = df_intermediate
             else:
-                df = df.append(df_intermediate, ignore_index=True)
+                 df = pd.concat([df_intermediate], ignore_index=True)
     # Other data is a list of dictionaries and can be converted into a dataframe directly
     else:
         df = pd.DataFrame(data)
